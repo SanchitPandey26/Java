@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q4 {
+public class Q7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -9,17 +9,14 @@ public class Q4 {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        int j = 0;
-        for (int i = 1; i < n; i++){
-            if (arr[j] != arr[i]){
-                j++;
-                arr[j] = arr[i];
+        if (n == 1) System.out.println(true);
+        else {
+            int count = 0;
+            for (int i = 0; i < n-1; i++) {
+                if (arr[i] > arr[i+1]) count++;
             }
-        }
-        System.out.println(j+1);
-
-        for (int i = 0; i < j + 1; i++){
-            System.out.print(arr[i] + " ");
+            if (arr[0] < arr[n-1]) count++;
+            System.out.println(count <= 1);
         }
     }
 }
